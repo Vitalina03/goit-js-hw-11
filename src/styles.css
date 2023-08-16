@@ -91,7 +91,7 @@ button:focus {
 }
 
 .img_wrap {
-    height: 280px;
+    height: 300px;
     display: flex;
     align-items: center;
 }
