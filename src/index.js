@@ -59,9 +59,9 @@ function onSubmitForm(event) {
         };
         if (data.totalHits > perPage) {
             btnLoadMore.classList.remove('is-hidden');
-            window.addEventListener('scroll', showLoadMorePage);
+            // window.addEventListener('scroll', showLoadMorePage);
         };
-       
+        //  scrollPage();
     })
     .catch(onFetchError);
 
@@ -110,9 +110,10 @@ function onClickLoadMore() {
                 btnLoadMore.classList.add('is-hidden');
                 Notify.info("We're sorry, but you've reached the end of search results.", paramsForNotify);
                 btnLoadMore.removeEventListener('click', onClickLoadMore);
-                window.removeEventListener('scroll', showLoadMorePage);
+                // window.removeEventListener('scroll', showLoadMorePage);
             };
             lightbox.refresh();
+            //  scrollPage();
          
         })
         .catch(onFetchError);
@@ -122,12 +123,21 @@ function onFetchError() {
     Notify.failure('Oops! Something went wrong! Try reloading the page or make another choice!', paramsNotify);
 };
 
+// function scrollPage() {
+//     const { height: cardHeight } = gallery.firstElementChild.getBoundingClientRect();
 
-function showLoadMorePage() {
-    if (checkIfEndOfPage()) {
-        onClickLoadMore();
-    };
-};
+//     window.scrollBy({
+//         top: cardHeight * 2,
+//         behavior: "smooth",
+//     });
+// };
+
+
+// function showLoadMorePage() {
+//     if (checkIfEndOfPage()) {
+//         onClickLoadMore();
+//     };
+// };
 
 function checkIfEndOfPage() {
   return (
